@@ -1,11 +1,9 @@
 package org.launchcode;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Circle {
-    public static void main(String[] args) {
-        public static Double getArea(Double radius) {
-            return 3.14 * radius * radius;
-        }
+    public static Double getArea(Double Radius) {
+        return 3.14 * Radius * Radius;
     }
 }
