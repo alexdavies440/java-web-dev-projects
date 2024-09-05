@@ -15,6 +15,14 @@ public class AliceInWonderland {
 
         System.out.println("It is " + searchResult + " that the term " + searchTerm.toLowerCase() + " can be found within the first sentence of Alice in Wonderland.");
 
+        //String[] sentenceArray = firstSentence.split(" ");
+        int stringIndex = firstSentence.indexOf(searchTerm);
+        System.out.println("String index: " + stringIndex);
 
+        String firstHalf = firstSentence.substring(0, stringIndex-1);
+        String secondHalf = firstSentence.substring(stringIndex+searchTerm.length(), firstSentence.length()-1);
+        String omittedWordSentence = firstHalf.concat(secondHalf);
+
+        System.out.println(omittedWordSentence);
     }
 }
