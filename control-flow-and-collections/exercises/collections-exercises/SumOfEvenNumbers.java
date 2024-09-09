@@ -16,14 +16,13 @@ public class SumOfEvenNumbers {
         Scanner input = new Scanner(System.in);
         ArrayList<Integer> numList = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 10; i++) {
 
-            System.out.println("Enter number " + (i+1) + ": ");
+            System.out.println("Enter number " + i + ": ");
 
             Integer item = input.nextInt();
             numList.add(item);
         }
-
         System.out.println("Sum of even numbers: " + evenSum(numList));
     }
 }
