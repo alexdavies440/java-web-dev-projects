@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class FindByLength {
-
-
     public static ArrayList<String> returnWords(ArrayList<String> list, int length) {
         ArrayList<String> newList = new ArrayList<>();
-        //int length = input.nextInt;
+
         for (String word : list) {
             if (word.length() == length) {
                 newList.add(word);
@@ -28,6 +27,10 @@ public class FindByLength {
             wordList.add("carrot");
             wordList.add("seven");
         }
-        System.out.println(returnWords(wordList, length));
+        wordList = (returnWords(wordList, length));
+        System.out.println("There are " + wordList.size() + " words that match your search: ");
+        for (int i = 0; i < wordList.size(); i++) {
+            System.out.println(wordList.get(i));
+        }
     }
 }
