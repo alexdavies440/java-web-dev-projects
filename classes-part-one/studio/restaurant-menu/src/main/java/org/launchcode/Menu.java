@@ -2,18 +2,18 @@ package org.launchcode;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Menu {
-    private Date lastUpdated;
+    private LocalDate lastUpdated;
     private ArrayList<ArrayList> itemsOnMenu;
 
-    public Menu (Date lastUpdated, ArrayList<ArrayList> itemsOnMenu) {
+    public Menu (LocalDate lastUpdated, ArrayList<ArrayList> itemsOnMenu) {
         this.lastUpdated = lastUpdated;
         this.itemsOnMenu = itemsOnMenu;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(LocalDate lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 
@@ -21,11 +21,11 @@ public class Menu {
         this.itemsOnMenu = itemsOnMenu;
     }
 
-    public Date getLastUpdated() {
-        return getLastUpdated();
+    public LocalDate getLastUpdated() {
+        return lastUpdated;
     }
 
     public ArrayList<ArrayList> getItemsOnMenu() {
-        return getItemsOnMenu();
+        return itemsOnMenu;
     }
 }
