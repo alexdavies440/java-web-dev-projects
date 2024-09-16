@@ -88,8 +88,14 @@ public class Student {
         String report = "";
         if (this.gpa == 4.0) {
             report = String.format("Student#%d: %s is a %s and currently has %d credits with a GPA of %.1f",this.studentId, this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa);
-        } else {
+        }
+        else if (this.gpa > 4.0) {
+            report = String.format("Student#%d: %s is a %s and currently has %d credits with a GPA of %.1f, so we're pretty sure they're cheating...but we cannot prove anything at this time", this.studentId, this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa);
+        }
+        else if (gpa > 1.0) {
             report = String.format("Student#%d: %s is a %s and currently has %d credits, but with a GPA of %.1f, %s is no longer considered a perfect student",this.studentId, this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa, this.name);
+        } else {
+            report = String.format("Student#%d: %s, in spite of their ambitious %d credits, is no longer allowed on campus due to a horrific gpa of %1f", this.studentId, this.name, this.numberOfCredits, this.gpa);
         }
 
         return report;
@@ -97,6 +103,13 @@ public class Student {
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
 
+    public boolean equals(Student testSubject) {
+        return (
+                this.studentId == testSubject.studentId
+                && this.numberOfCredits == testSubject.numberOfCredits
+                && this.gpa == testSubject.gpa
+        );
+    }
     public String getName() {
         return name;
     }
@@ -129,6 +142,14 @@ public class Student {
         this.numberOfCredits = numberOfCredits;
     }
 
+    public String findSally(Student isThisOneSally) {
+        if (this.equals(isThisOneSally)) {
+            return "Sally has been caught trying to sneak onto campus when she doesn't even go here!";
+        } else {
+            return "Try again";
+        }
+    }
+
     public static void main(String[] args) {
         Student sally = new Student("Sally",1,1,4.0);
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
@@ -137,13 +158,20 @@ public class Student {
         System.out.println(sally);
         sally.addGrade(25, 3.8);
         System.out.println(sally);
+        sally.addGrade(20, 2.0);
+        System.out.println(sally);
+        sally.addGrade(202, 1.8);
+        System.out.println(sally);
+        sally.addGrade(2000, 0.7);
+        System.out.println(sally);
 
-        Student test = new Student("Test", 34342, 0, 0);
-        System.out.println(test.getGradeLevel(35));
-        test.addGrade(3, 4.0);
-        test.addGrade(4, 3.0);
-        System.out.println(test.gpa);
-        System.out.println(test.numberOfCredits);
+        Student robert = new Student("Robert", 34342, 5, 42.0);
+        System.out.println(robert.getGradeLevel(35));
+        robert.addGrade(3, 4.0);
+        robert.addGrade(4, 3.0);
+        System.out.println(robert);
+        Student anonStudent = new Student ("Anonymous", (sally.studentId), sally.numberOfCredits, sally.gpa);
 
+        System.out.println(sally.findSally(anonStudent));
     }
 }
