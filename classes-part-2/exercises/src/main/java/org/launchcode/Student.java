@@ -1,5 +1,7 @@
 package org.launchcode;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Student {
 
     private static int nextStudentId = 1;
@@ -32,11 +34,51 @@ public class Student {
     //TODO: Uncomment and complete the getGradeLevel method here:
 //    public String getGradeLevel() {
 //        // Determine the grade level of the student based on numberOfCredits
+//        String gradeLevel = "";
+//        if (numberOfCredits >= 0 && numberOfCredits <= 29) {
+//            gradeLevel = "Freshman";
+//        }
+//        else if (numberOfCredits >= 30 && numberOfCredits<= 59) {
+//            gradeLevel = "Sophomore";
+//        }
+//        else if (numberOfCredits >= 60 && numberOfCredits <= 89) {
+//            gradeLevel = "Junior";
+//        }
+//        else if (numberOfCredits >= 90) {
+//            gradeLevel = "Senior";
+//        }
+//        return gradeLevel;
 //    }
+
+    public static String getGradeLevel(int credits) {
+        // Determine the grade level of the student based on numberOfCredits
+
+        if (credits >= 0 && credits <= 29) {
+            return "Freshman";
+        }
+        else if (credits >= 30 && credits<= 59) {
+            return "Sophomore";
+        }
+        else if (credits >= 60 && credits <= 89) {
+            return  "Junior";
+        }
+        else {
+            return  "Senior";
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         // Update the appropriate fields: numberOfCredits, gpa
+
+        // Set qualityScore FIRST, then update or grades will be screwed up
+        // because uses gpa and numberOfCredits which are about to have values changed
+        // otherwise all students will fail except that one person who got "Infinity"
+        double qualityScore = this.gpa * this.numberOfCredits;
+        qualityScore += courseCredits * grade;
+
+        this.numberOfCredits += courseCredits;
+        this.gpa = qualityScore / this.numberOfCredits;
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
@@ -85,5 +127,12 @@ public class Student {
         System.out.println(sally);
         sally.addGrade(25, 3.8);
         System.out.println(sally);
+
+        Student test = new Student("Test", 34342, 0, 0);
+        System.out.println(test.getGradeLevel(35));
+        test.addGrade(3, 4.0);
+        test.addGrade(4, 3.0);
+        System.out.println(test.gpa);
+        System.out.println(test.numberOfCredits);
     }
 }
