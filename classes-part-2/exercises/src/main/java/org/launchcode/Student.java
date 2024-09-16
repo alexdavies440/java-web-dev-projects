@@ -84,6 +84,16 @@ public class Student {
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
 
+    public String toString() {
+        String report = "";
+        if (this.gpa == 4.0) {
+            report = String.format("Student#%d: %s is a %s and currently has %d credits with a GPA of %.1f",this.studentId, this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa);
+        } else {
+            report = String.format("Student#%d: %s is a %s and currently has %d credits, but with a GPA of %.1f, %s is no longer considered a perfect student",this.studentId, this.name, this.getGradeLevel(this.numberOfCredits), this.numberOfCredits, this.gpa, this.name);
+        }
+
+        return report;
+    }
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
 
@@ -134,5 +144,6 @@ public class Student {
         test.addGrade(4, 3.0);
         System.out.println(test.gpa);
         System.out.println(test.numberOfCredits);
+
     }
 }
