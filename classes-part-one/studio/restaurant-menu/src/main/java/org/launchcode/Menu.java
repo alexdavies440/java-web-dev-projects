@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 public class Menu {
     private LocalDate lastUpdated;
-    private ArrayList<ArrayList> itemsOnMenu;
+    private ArrayList<MenuItem> itemsOnMenu;
 
-    public Menu (LocalDate lastUpdated, ArrayList<ArrayList> itemsOnMenu) {
+    public Menu (LocalDate lastUpdated, ArrayList<MenuItem> itemsOnMenu) {
         this.lastUpdated = lastUpdated;
         this.itemsOnMenu = itemsOnMenu;
     }
@@ -17,7 +17,7 @@ public class Menu {
         this.lastUpdated = lastUpdated;
     }
 
-    public void setItemsOnMenu(ArrayList<ArrayList> itemsOnMenu) {
+    public void setItemsOnMenu(ArrayList<MenuItem> itemsOnMenu) {
         this.itemsOnMenu = itemsOnMenu;
     }
 
@@ -25,7 +25,7 @@ public class Menu {
         return lastUpdated;
     }
 
-    public ArrayList<ArrayList> getItemsOnMenu() {
+    public ArrayList<MenuItem> getItemsOnMenu() {
         return itemsOnMenu;
     }
 }
