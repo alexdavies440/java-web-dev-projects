@@ -1,6 +1,7 @@
 package org.launchcode;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,14 +22,12 @@ public class Menu {
         this.items = items;
     }
 
-    public LocalDate getLastUpdated() {
-        return lastUpdated;
+    public String getLastUpdated() {
+        DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return lastUpdated.format(formattedDate);
     }
 
-    public ArrayList<MenuItem> getItems() {
-        return items;
-    }
-
+    public ArrayList<MenuItem> getItems() { return items; }
 }
 
 

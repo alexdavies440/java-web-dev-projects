@@ -5,7 +5,7 @@ import java.util.Objects;
 public class MenuItem {
     private double price;
     private String description;
-    public String category;
+    private String category;
     private boolean isNew;
 
     public MenuItem(double p, String d, String c, boolean iN) {
@@ -31,12 +31,16 @@ public class MenuItem {
         isNew = aNew;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
     public String toString() {
         String menuEntry = "";
         if (this.isNew) {
-             menuEntry = menuEntry.format("$%.2f %s(NEW!)", price, description, isNew);
+             menuEntry = menuEntry.format("- %s(NEW!) - $%.2f", description, price);
         } else {
-            menuEntry = menuEntry.format("$%.2f %s", price, description);
+            menuEntry = menuEntry.format("- %s - $%.2f" , description, price);
         }
         return menuEntry;
     }
