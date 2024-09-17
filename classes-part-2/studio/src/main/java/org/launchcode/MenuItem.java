@@ -1,9 +1,11 @@
 package org.launchcode;
 
+import java.util.Objects;
+
 public class MenuItem {
     private double price;
     private String description;
-    private String category;
+    public String category;
     private boolean isNew;
 
     public MenuItem(double p, String d, String c, boolean iN) {
@@ -28,5 +30,21 @@ public class MenuItem {
     public void setNew(boolean aNew) {
         isNew = aNew;
     }
+
+    public String toString() {
+        String menuEntry = "";
+        if (this.isNew) {
+             menuEntry = menuEntry.format("$%.2f %s(NEW!)", price, description, isNew);
+        } else {
+            menuEntry = menuEntry.format("$%.2f %s", price, description);
+        }
+        return menuEntry;
+    }
+
+    public boolean equalsCategory(String category) {
+        return (this.category == category);
+    }
+
 }
+
 
