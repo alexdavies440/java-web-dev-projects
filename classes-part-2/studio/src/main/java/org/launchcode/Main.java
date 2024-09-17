@@ -8,6 +8,7 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public class Main {
 
@@ -33,8 +34,6 @@ public class Main {
 
         ArrayList<MenuItem> menuItems = new ArrayList<>();
 
-
-
         menuItems.add(breadSticks);
         menuItems.add(salad);
         menuItems.add(ryeBread);
@@ -51,7 +50,6 @@ public class Main {
         menuItems.add(cheeseCake);
         menuItems.add(PBJ);
         menuItems.add(chocolateCake);
-
 
         Menu ourMenu = new Menu(LocalDate.now(), menuItems);
 
