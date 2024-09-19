@@ -46,12 +46,17 @@ public class Main {
                 selectedCar = newCar;
             }
             if (choice.equals("x")) {
-                System.out.println("LOL" + "\n");
+                //I think there must be a much better way to do this but I need to go to bed for now
+                System.out.println("***   ***");
+                System.out.println(" *** ***");
+                System.out.println("  *****");
+                System.out.println("   ***");
+                System.out.println("  *****");
+                System.out.println(" *** ***");
+                System.out.println("***   ***");
+
             }
-
         }
-
         while (selectedCar.getGasTankLevel() > 0);
-
     }
 }
