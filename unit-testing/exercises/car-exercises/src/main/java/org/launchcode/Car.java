@@ -46,7 +46,14 @@ public class Car {
     }
 
     public void setGasTankLevel(double gasTankLevel) {
+        if (gasTankLevel > this.getGasTankSize()) {
+            throw new IllegalArgumentException("Amount exceeds tank capacity of " + this.getGasTankSize() + "!");
+        }
         this.gasTankLevel = gasTankLevel;
+    }
+
+    public void addGas(double gas) {
+        this.setGasTankLevel(gas + getGasTankLevel());
     }
 
     public double getMilesPerGallon() {
@@ -72,6 +79,10 @@ public class Car {
     {
         //adjust fuel based on mpg and miles requested to drive
         double maxDistance = this.milesPerGallon * this.gasTankLevel;
+
+//        if (miles > maxDistance) {
+//            throw new IllegalArgumentException("Not enough fuel for that!");
+//        }
         /**the double below uses some syntax called the ternary operator.
          * if the value of miles is greater than the value of maxDistance,
          * then milesAbleToTravel = maxDistance.
