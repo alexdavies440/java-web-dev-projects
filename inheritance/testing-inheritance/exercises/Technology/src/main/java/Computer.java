@@ -1,14 +1,18 @@
 public class Computer {
     private boolean isOn = false;
-    private String OS;
-    private double memory;
-    private double storage;
+    private String OS = "Linux";
+    private double memory = 8;
+    private double storage = 32;
 
     public Computer(boolean isOn, String OS, double memory, double storage) {
         this.isOn = isOn;
         this.OS = OS;
         this.memory = memory;
         this.storage = storage;
+    }
+
+    public Computer() {
+
     }
 
     public String getOS() {
@@ -25,5 +29,13 @@ public class Computer {
 
     public double getStorage() {
         return storage;
+    }
+
+    public boolean isOn() {
+        return isOn;
+    }
+
+    public void turnOn(boolean on) {
+        this.isOn = on;
     }
 }
