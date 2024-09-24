@@ -1,12 +1,10 @@
 public class MultipleChoice extends Question {
     private String[] choiceKeys = {"a", "b", "c", "d"};
     private String[] choices = new String[4];
-    private String answer;
     public MultipleChoice(String question, String[] choices, String answer) {
-        super(question);
+        super(question, answer);
         this.choiceKeys = getChoiceKeys();
         this.choices = choices;
-        this.answer = answer;
     }
 
     public String[] getChoiceKeys() {
@@ -14,12 +12,12 @@ public class MultipleChoice extends Question {
     }
 
     public String getAnswer() {
-        return answer;
+        return super.getAnswer();
     }
 
     public int checkAnswer(String userAnswer) {
 
-        int result = answer == userAnswer ? 1 : 0;
+        int result = super.getAnswer() == userAnswer ? 1 : 0;
         return result;
     }
 
