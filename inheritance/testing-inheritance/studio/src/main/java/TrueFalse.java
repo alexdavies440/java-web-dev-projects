@@ -5,9 +5,4 @@ public class TrueFalse extends Question {
     }
 
 
-    public int checkAnswer(String userAnswer) {
-
-        int result = super.getAnswer() == userAnswer ? 1 : 0;
-        return result;
-    }
 }

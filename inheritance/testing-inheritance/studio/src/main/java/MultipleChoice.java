@@ -15,12 +15,6 @@ public class MultipleChoice extends Question {
         return super.getAnswer();
     }
 
-    public int checkAnswer(String userAnswer) {
-
-        int result = super.getAnswer() == userAnswer ? 1 : 0;
-        return result;
-    }
-
     public void askMultipleChoiceQuestion() {
         System.out.println(this.getQuestion());
         for (int i = 0; i < choices.length; i++) {

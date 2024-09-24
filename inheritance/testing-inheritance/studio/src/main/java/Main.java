@@ -9,5 +9,9 @@ public class Main {
         System.out.println(fruit.checkAnswer("b"));
         fruit.askMultipleChoiceQuestion();
         addition.askMultipleChoiceQuestion();
+
+        TrueFalse twoPlusTwo = new TrueFalse("2 + 2 = 79. True(T) or false(F) lol?", "f");
+
+        System.out.println(twoPlusTwo.checkAnswer("F"));
     }
 }
