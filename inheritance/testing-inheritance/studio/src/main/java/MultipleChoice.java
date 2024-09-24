@@ -26,7 +26,7 @@ public class MultipleChoice extends Question {
     public void askMultipleChoiceQuestion() {
         System.out.println(this.getQuestion());
         for (int i = 0; i < choices.length; i++) {
-            System.out.println(choiceKeys[i] + "-" + choices[i]);
+            System.out.println("(" + choiceKeys[i] + ")" + " " + choices[i]);
         }
     }
 }
