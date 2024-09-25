@@ -3,8 +3,8 @@ public class MultipleChoice extends Question {
     private String[] choices = new String[4];
     public MultipleChoice(String question, String[] choices, String answer) {
         super(question, answer);
-        this.choiceKeys = getChoiceKeys();
         this.choices = choices;
+        this.choiceKeys = getChoiceKeys();
     }
 
     public String[] getChoiceKeys() {
