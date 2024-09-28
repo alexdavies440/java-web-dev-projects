@@ -29,5 +29,6 @@ public class Main {
         for (Cone cone : cones) {
             System.out.println(cone.getCost());
         }
+        
     }
 }
