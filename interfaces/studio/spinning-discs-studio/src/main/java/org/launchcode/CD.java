@@ -9,6 +9,12 @@ public class CD extends PhysicalMedia implements ReadOnly {
     }
     // TODO: Implement your custom interface.
 
+    @Override
+    public void read() {
+        System.out.println("Now reading " + name);
+    }
+
+
     // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
     //  need to be declared separately.
 }
