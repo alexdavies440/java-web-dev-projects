@@ -1,6 +1,7 @@
 package org.launchcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Main {
@@ -8,6 +9,8 @@ public class Main {
         Case menu = new Case();
         ArrayList<Flavor> flavors = menu.getFlavors();
         ArrayList<Cone> cones = menu.getCones();
+        ArrayList<Topping> toppings = menu.getToppings();
+
 
         // TODO: Use a Comparator class to sort the 'flavors' array alphabetically by the 'name' field.
 
@@ -29,6 +32,17 @@ public class Main {
         for (Cone cone : cones) {
             System.out.println(cone.getCost());
         }
-        
+
+        toppings.sort(new AllergenComparator());
+
+        System.out.println();
+        for (Topping i : toppings) {
+            System.out.println(i.getName());
+        }
+
+
+
+
+
     }
 }
