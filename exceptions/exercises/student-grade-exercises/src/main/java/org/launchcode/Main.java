@@ -27,13 +27,12 @@ public class Main {
     public static void Divide(int x, int y) {
         if (y == 0) {
             try {
-                throw new ArithmeticException("Cannot divide by zero (Silly goose!)");
+                throw new ArithmeticException("Cannot divide by zero!");
             } catch (ArithmeticException e) {
-                e.getStackTrace();
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
-        int result = x / y;
+        double result = 1.0 * x / y;
         System.out.println(x + "/" + y + " = " + result);
     }
 
