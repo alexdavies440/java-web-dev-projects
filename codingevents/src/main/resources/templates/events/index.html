@@ -7,9 +7,12 @@
 <body>
 <h1>All Events</h1>
 
+<nav th:replace="fragments :: navigation"></nav>
+
+<!--<a href="/events/create"><button>+New Event</button></a>-->
+
 <p th:unless="${events} and ${events.size()}">No Events</p>
 
-<a href="/events/create"><button>+New Event</button></a>
 <ul>
     <th:block th:each="event : ${events}">
         <li th:text="${event}">event</li>
