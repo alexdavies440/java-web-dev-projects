@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>All Events</h1>
+
+<p th:unless="${events} and ${events.size()}">No Events</p>
+
+<a href="/events/create"><button>+New Event</button></a>
 <ul>
     <th:block th:each="event : ${events}">
         <li th:text="${event}">event</li>
