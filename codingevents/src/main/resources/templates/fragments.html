@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Coding Events</title>
+    <script th:src="@{/script.js}"></script>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <nav th:fragment="navigation">
@@ -11,6 +13,6 @@
         <li><a href="/events/create">Create Event</a></li>
     </ul>
 </nav>
-
+<img th:fragment="balloons" th:src=@{/balloons.jpg} alt="balloons">
 </body>
 </html>
