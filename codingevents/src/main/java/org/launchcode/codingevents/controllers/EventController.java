@@ -21,7 +21,8 @@ public class EventController {
     //lives at /events/create
 
     @GetMapping("create")
-    public String renderCreateEventForm() {
+    public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
 
@@ -46,5 +47,19 @@ public class EventController {
             }
         }
         return "redirect:/events";
+    }
+
+    @GetMapping("edit/{eventId}")
+    public String displayEditForm(Model model, @PathVariable int eventId) {
+        Event event = EventData.getById(eventId);
+        model.addAttribute("event", event);
+        String title = "Edit Event " + event.getName() + " (id=" + event.getId() + ")";
+        model.addAttribute("title", title);
+        return "events/edit";
+    }
+
+    @PostMapping("edit")
+    public String processEditForm(int eventId, String name, String description) {
+        return "events/edit";
     }
 }
