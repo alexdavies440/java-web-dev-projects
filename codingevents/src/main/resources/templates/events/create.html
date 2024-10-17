@@ -24,6 +24,12 @@
         <p class="error" th:errors="${event.location}"></p>
     </div>
     <div class="form-group">
+        <label>Number of Attendees:
+            <input th:field="${event.numOfAttendees}" class="form-control"/>
+        </label>
+        <p class="error" th:errors="${event.numOfAttendees}"></p>
+    </div>
+    <div class="form-group">
         <label>Description
             <input th:field="${event.description}" class="form-control"/>
         </label>
@@ -32,6 +38,13 @@
     <div class="form-group">
         <label>Contact Email: <input th:field="${event.contactEmail}" class="form-control"/></label>
         <p class="error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="checkbox" th:field="${event.registered}"/>
+            I solemnly swear that by registering, I promise that all my guests will behave themselves
+        </label>
+        <p class="error" th:errors="${event.registered}"></p>
     </div>
     <br>
     <div class="form-group">

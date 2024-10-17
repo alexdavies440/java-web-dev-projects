@@ -1,9 +1,7 @@
 package org.launchcode.codingevents.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.NumberFormat;
 
 import java.util.Objects;
 
@@ -19,6 +17,11 @@ public class Event {
     @NotNull(message = "Please enter valid location")
     private String location;
 
+
+//    @Size(min = 1, message = "Please enter a number greater than 0")
+    @Positive(message = "Please enter a number greater than 0")
+    private int numOfAttendees;
+
     @Size(max = 500, message = "Description too long")
     private String description;
 
@@ -26,17 +29,23 @@ public class Event {
     @NotBlank(message = "Please enter your email")
     private String contactEmail;
 
+    @AssertTrue(message = "You can't register unless you promise!")
+    private boolean registered;
+
     public Event() {
         this.id = nextId;
         nextId++;
     }
 
-    public Event(String name, String location, String description, String contactEmail) {
+    public Event(String name, String location, int numOfAttendees, String description,
+                 String contactEmail, boolean registered) {
         this();
         this.name = name;
         this.location = location;
+        this.numOfAttendees = numOfAttendees;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.registered = registered;
     }
 
     public String getDescription() {
@@ -63,12 +72,29 @@ public class Event {
         this.location = location;
     }
 
+
+    public int getNumOfAttendees() {
+        return numOfAttendees;
+    }
+
+    public void setNumOfAttendees(@NotBlank(message = "Please enter a number greater than 0") @NotNull(message = "Please enter a number greater than 0") @Positive(message = "Please enter a number greater than 0") int numOfAttendees) {
+        this.numOfAttendees = numOfAttendees;
+    }
+
     public @Email String getContactEmail() {
         return contactEmail;
     }
 
     public void setContactEmail(@Email String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public boolean isRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(boolean registered) {
+        this.registered = registered;
     }
 
     public int getId() {
