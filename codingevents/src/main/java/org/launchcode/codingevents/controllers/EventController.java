@@ -58,4 +58,10 @@ public class EventController {
         }
         return "redirect:/events";
     }
+
+    @GetMapping("terms")
+    public String displayTermsAndConditions(Model model) {
+        model.addAttribute("title", "Terms and Conditions: ");
+        return "events/terms";
+    }
 }

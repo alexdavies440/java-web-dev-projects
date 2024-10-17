@@ -42,7 +42,8 @@
     <div class="form-group">
         <label>
             <input type="checkbox" th:field="${event.registered}"/>
-            I solemnly swear that by registering, I promise that all my guests will behave themselves
+            I solemnly swear that by registering, I promise that all my guests will behave themselves and have read the
+            <a href="terms">Terms and Conditions</a>
         </label>
         <p class="error" th:errors="${event.registered}"></p>
     </div>
