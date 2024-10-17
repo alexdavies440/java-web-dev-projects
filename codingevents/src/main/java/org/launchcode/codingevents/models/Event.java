@@ -19,15 +19,15 @@ public class Event {
     private String contactEmail;
 
     public Event() {
-
+        this.id = nextId;
+        nextId++;
     }
 
     public Event(String name, String description, String contactEmail) {
+        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.id = nextId;
-        nextId++;
     }
 
     public String getDescription() {
