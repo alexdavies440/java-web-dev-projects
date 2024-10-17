@@ -9,14 +9,18 @@ import java.util.Objects;
 public class Event {
     private int id;
     private static int nextId = 1;
-    @NotBlank
-    @Size(min = 3, max = 50, message = "Must be between 3 and 50 characters")
+    @NotBlank(message = "Please enter a name")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
     @Size(max = 500, message = "Description too long")
     private String description;
     @Email(message = "Invalid email")
-    @NotBlank(message = "We want your email")
+    @NotBlank(message = "Please enter your email")
     private String contactEmail;
+
+    public Event() {
+
+    }
 
     public Event(String name, String description, String contactEmail) {
         this.name = name;
