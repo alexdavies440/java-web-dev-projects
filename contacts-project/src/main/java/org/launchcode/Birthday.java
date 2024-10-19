@@ -8,4 +8,17 @@ public class Birthday {
         this.day = day;
         this.month = month;
     }
+
+    public int getDay() {
+        return day;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    @Override
+    public String toString() {
+        return day + " " + month;
+    }
 }

@@ -19,4 +19,38 @@ public class Contact {
         this.phoneNumber = phoneNumber;
         this.birthday = birthday;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Birthday getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Birthday birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        String s = System.lineSeparator();
+        return s + name + s + phoneNumber + s + birthday + s;
+    }
 }
