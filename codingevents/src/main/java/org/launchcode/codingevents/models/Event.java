@@ -9,6 +9,8 @@ public class Event {
     private int id;
     private static int nextId = 1;
 
+    private EventType type;
+
     @NotBlank(message = "Please enter a name")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
@@ -37,9 +39,10 @@ public class Event {
         nextId++;
     }
 
-    public Event(String name, String location, int numOfAttendees, String description,
+    public Event(EventType type,String name, String location, int numOfAttendees, String description,
                  String contactEmail, boolean registered) {
         this();
+        this.type = type;
         this.name = name;
         this.location = location;
         this.numOfAttendees = numOfAttendees;
@@ -99,6 +102,14 @@ public class Event {
 
     public int getId() {
         return id;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     @Override
