@@ -18,8 +18,21 @@ public enum Month {
     private final String displayMonth;
     private final int monthOrder;
 
-    public Month(String displayMonth, int monthOrder) {
+    Month(String displayMonth, int monthOrder) {
         this.displayMonth = displayMonth;
         this.monthOrder = monthOrder;
+    }
+
+    public String getDisplayMonth() {
+        return displayMonth;
+    }
+
+    public int getMonthOrder() {
+        return monthOrder;
+    }
+
+    @Override
+    public String toString() {
+        return displayMonth;
     }
 }
