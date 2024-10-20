@@ -28,6 +28,7 @@ public class EventController {
     public String renderCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
+        // Model attribute so types show up on Get request (page loads)
         model.addAttribute("types", EventType.values());
         return "events/create";
     }
@@ -37,6 +38,9 @@ public class EventController {
                               Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Event");
+            // Model attribute here seems redundant but is here in case of errors,
+            // for example, there are invalid inputs, the page will reload
+            // and without this, the <select> options will be blank
             model.addAttribute("types", EventType.values());
 
             return "events/create";
