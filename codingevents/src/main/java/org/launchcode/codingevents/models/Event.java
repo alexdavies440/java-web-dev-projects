@@ -9,6 +9,7 @@ public class Event {
     private int id;
     private static int nextId = 1;
 
+    @NotNull(message = "Please select an event type")
     private EventType type;
 
     @NotBlank(message = "Please enter a name")
