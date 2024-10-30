@@ -6,28 +6,46 @@ import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
+/**
+ * Created by Chris Bay
+ */
 public class Event {
+
     private int id;
     private static int nextId = 1;
-    @NotBlank(message = "Please enter a name")
+
+    @NotBlank(message = "Name is required")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
-    @Size(max = 500, message = "Description too long")
+
+    @Size(max = 500, message = "Description too long!")
     private String description;
-    @Email(message = "Invalid email")
-    @NotBlank(message = "Please enter your email")
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email. Try again.")
     private String contactEmail;
+
+    private EventType type;
+
+    public Event(String name, String description, String contactEmail, EventType type) {
+        this();
+        this.name = name;
+        this.description = description;
+        this.contactEmail = contactEmail;
+        this.type = type;
+    }
 
     public Event() {
         this.id = nextId;
         nextId++;
     }
+    public String getName() {
+        return name;
+    }
 
-    public Event(String name, String description, String contactEmail) {
-        this();
+
+    public void setName(String name) {
         this.name = name;
-        this.description = description;
-        this.contactEmail = contactEmail;
     }
 
     public String getDescription() {
@@ -38,21 +56,17 @@ public class Event {
         this.description = description;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public @Email String getContactEmail() {
+    public String getContactEmail() {
         return contactEmail;
     }
 
-    public void setContactEmail(@Email String contactEmail) {
+    public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
+
+    public EventType getType() { return type; }
+
+    public void setType(EventType type) { this.type = type; }
 
     public int getId() {
         return id;
@@ -73,6 +87,6 @@ public class Event {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(id);
     }
 }

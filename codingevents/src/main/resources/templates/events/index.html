@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-
 <body class="container">
-<h1>All Events</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
-
-<!--<a href="/events/create"><button>+New Event</button></a>-->
-
-<p th:unless="${events} and ${events.size()}">No Events</p>
+<header th:replace="fragments :: header"></header>
 
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Id</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Description</th>
         <th>Contact Email</th>
+        <th>Type</th>
     </tr>
     </thead>
     <tr th:each="event : ${events}">
@@ -25,12 +20,9 @@
         <td th:text="${event.name}"></td>
         <td th:text="${event.description}"></td>
         <td th:text="${event.contactEmail}"></td>
+        <td th:text="${event.type.displayName}"></td>
     </tr>
 </table>
-
-
-
-<!--<img th:replace="fragments :: balloons">-->
 
 </body>
 </html>
